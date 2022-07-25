@@ -9,7 +9,7 @@ A idéia é criar o jogo "jogo da velha" com javascript através do canvas (dese
 
 - |ok| => FAZER A TELA DO CANVAS SER AUTO DIMENSIONÁVEL
 - |ok| => DESENHAR O TABULEIRO
-- |  | => IDENTIFICAR POSIÇÕES
+- |ok| => IDENTIFICAR POSIÇÕES
 - |  | => LOGICA PARA DENHAR X ou O NO TABULEIRO
 - |  | => VERIFICAR SE POSIÇÃO SENDO USADA 
 - |  | => ALTERNAR JOGADOR

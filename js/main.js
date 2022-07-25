@@ -51,7 +51,10 @@
         let blockP6H = (canvaCentroH - (blockH / 2));
         let blockP7H = (canvaCentroH + (blockH / 2));
         let blockP8H = (canvaCentroH + (blockH / 2));
-        let blockP9H = (canvaCentroH + (blockH / 2));        
+        let blockP9H = (canvaCentroH + (blockH / 2));  
+        
+        let blockP1PW = ((blockP1W + (blockW / 2)))
+        let blockP1PH = ((blockP1H + (blockH / 2)))
 
         ctx.strokeStyle = corSecundaria;
         ctx.strokeRect(blockP1W, blockP1H, blockW, blockH);
@@ -80,6 +83,31 @@
         ctx.fillStyle = corPrimaria;
         ctx.textAlign = 'center';
         ctx.fillText('###  Jogo da Velha  ###', canvaCentroW, 15);
+
+        //recebe posição do mouse na hora do click
+        function posicaoM(evento) {
+
+            var x = evento.pageX - canvas.offsetLeft;
+            var y = evento.pageY - canvas.offsetTop;
+
+            if (x > blockP1W && x < blockP2W && y > blockP1H && y < blockP4H) {
+                console.log('ok ' + x, y + '  ' + blockP1PW, blockP1PH);
+                ctx.beginPath();
+                ctx.arc(blockP1PW, blockP1PH, (blockW * 0.4), 0, Math.PI * 2, true); 
+                ctx.stroke();
+            }
+
+            console.log(x + ',' + y);
+
+        }
+
+        canvas.onclick = posicaoM;
+        
+        console.log(`bloco P1W: ${blockP1W}`);
+        console.log(`bloco P1H: ${blockP1H}`);
+        console.log(`bloco P2W: ${blockP2W}`);
+        console.log(`bloco P2H: ${blockP2H}`);
+        console.log(`bloco P1PW: ${blockP1PW} ${blockP1PH}`);
 
     }
 
