@@ -25,7 +25,6 @@
         let corPrimaria = 'rgba(0,0,255,0.8';
         let corSecundaria = 'rgb(37, 0, 37)';
 
-
         let canvaZeroW = canvas.width - canvas.width;
         let canvaZeroH = canvas.height - canvas.height;
         let canvaCentroW = canvaZeroW + (canvas.width / 2);
@@ -51,8 +50,8 @@
         let blockP6H = (canvaCentroH - (blockH / 2));
         let blockP7H = (canvaCentroH + (blockH / 2));
         let blockP8H = (canvaCentroH + (blockH / 2));
-        let blockP9H = (canvaCentroH + (blockH / 2));  
-        
+        let blockP9H = (canvaCentroH + (blockH / 2));
+
         let blockP1PW = ((blockP1W + (blockW / 2)))
         let blockP1PH = ((blockP1H + (blockH / 2)))
 
@@ -75,6 +74,34 @@
         ctx.strokeStyle = corSecundaria;
         ctx.strokeRect(blockP9W, blockP9H, blockW, blockH);
 
+        ctx.lineWidth = 2;
+
+        ctx.strokeStyle = 'aqua';
+        ctx.beginPath();
+        ctx.moveTo(blockP1W, blockP1H);
+        ctx.lineTo((blockP1W + somaBlockW), blockP1H);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'aqua';
+        ctx.beginPath();
+        ctx.moveTo(blockP1W, (blockP7H + blockH));
+        ctx.lineTo((blockP1W + somaBlockW), (blockP7H + blockH));
+        ctx.stroke();
+
+        ctx.strokeStyle = 'aqua';
+        ctx.beginPath();
+        ctx.moveTo(blockP1W, (blockP1H));
+        ctx.lineTo(blockP1W, (blockP7H + blockH));
+        ctx.stroke();
+        
+        ctx.strokeStyle = 'aqua';
+        ctx.beginPath();
+        ctx.moveTo((blockP1W + somaBlockW), (blockP1H));
+        ctx.lineTo((blockP1W + somaBlockW), (blockP7H + blockH));
+        ctx.stroke();
+
+        ctx.lineWidth = 1;
+
         ctx.shadowOffsetX = 2;
         ctx.shadowOffsetY = 2;
         ctx.shadowBlur = 2;
@@ -89,20 +116,21 @@
 
             var x = evento.pageX - canvas.offsetLeft;
             var y = evento.pageY - canvas.offsetTop;
-
+            //verificando posição 
             if (x > blockP1W && x < blockP2W && y > blockP1H && y < blockP4H) {
                 console.log('ok ' + x, y + '  ' + blockP1PW, blockP1PH);
                 ctx.beginPath();
-                ctx.arc(blockP1PW, blockP1PH, (blockW * 0.4), 0, Math.PI * 2, true); 
+                ctx.arc(blockP1PW, blockP1PH, (blockW * 0.35), 0, Math.PI * 2, true);
                 ctx.stroke();
             }
 
             console.log(x + ',' + y);
 
         }
-
         canvas.onclick = posicaoM;
-        
+
+
+
         console.log(`bloco P1W: ${blockP1W}`);
         console.log(`bloco P1H: ${blockP1H}`);
         console.log(`bloco P2W: ${blockP2W}`);

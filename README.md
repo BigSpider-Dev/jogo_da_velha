@@ -2,7 +2,7 @@
 # Jogo da Velha
 
 ### Meu primeiro projeto de jogo / em construção!
-A idéia é criar o jogo "jogo da velha" com javascript através do canvas (desenhando) e implementar a logica com JS.
+A idéia é criar o jogo "jogo da velha" com javascript através do canvas (desenhar) e implementar a logica com JS.
 
 
 ## === DESAFIOS ===
@@ -15,7 +15,8 @@ A idéia é criar o jogo "jogo da velha" com javascript através do canvas (dese
 - |  | => ALTERNAR JOGADOR
 - |  | => VERIFICAR GANHADOR OU EMPATE
 - |  | => MOSTRAR RESULTADO
-- |  | => INICIAR NOVO JOGO 
+- |  | => INICIAR NOVO JOGO
+- |  | => OTIMIZAR CODIGO 
 
 
 ## Aprendizados
