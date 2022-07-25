@@ -19,3 +19,7 @@ A idéia é criar o jogo "jogo da velha" com javascript através do canvas (dese
 
 
 ## Aprendizados
+
+🧠 Estou aprendendo...
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
