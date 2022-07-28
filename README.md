@@ -24,3 +24,9 @@ A idéia é criar o jogo "jogo da velha" com javascript através do canvas (dese
 🧠 Estou aprendendo...
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+## WEBSITE
+
+https://joogodavelha.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/10f1a12e-1562-418c-9295-b0212584570a/deploy-status)](https://app.netlify.com/sites/joogodavelha/deploys)
