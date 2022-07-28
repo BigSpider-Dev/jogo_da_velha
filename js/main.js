@@ -9,15 +9,7 @@ let p7 = [];
 let p8 = [];
 let p9 = [];
 let jogador = false;
-let posicaoJogador1 = false;
-let posicaoJogador2 = false;
-let posicaoJogador3 = false;
-let posicaoJogador4 = false;
-let posicaoJogador5 = false;
-let posicaoJogador6 = false;
-let posicaoJogador7 = false;
-let posicaoJogador8 = false;
-let posicaoJogador9 = false;
+let posicaoJogador = [];
 
 let ganha = [
     [0, 1, 2],
@@ -179,9 +171,9 @@ function desenharAqui() {
             } else {
 
                 p1[0] = true;
-                posicaoJogador1 = jogador;
+                posicaoJogador[1] = jogador;
 
-                if (posicaoJogador1) {
+                if (posicaoJogador[1]) {
                     p1[1], jogadas[0] = 'O';
                 } else {
                     p1[1], jogadas[0] = 'X';
@@ -198,9 +190,9 @@ function desenharAqui() {
             } else {
 
                 p2[0] = true;
-                posicaoJogador2 = jogador;
+                posicaoJogador[2] = jogador;
 
-                if (posicaoJogador2) {
+                if (posicaoJogador[2]) {
                     p2[1], jogadas[1] = 'O';
                 } else {
                     p2[1], jogadas[1] = 'X';
@@ -216,9 +208,9 @@ function desenharAqui() {
             } else {
                 //p3.ocup = true;
                 p3[0] = true;
-                posicaoJogador3 = jogador;
+                posicaoJogador[3] = jogador;
                 //p3.jogador = posicaoJogador3;
-                if (posicaoJogador3) {
+                if (posicaoJogador[3]) {
                     p3[1], jogadas[2] = 'O';
                 } else {
                     p3[1], jogadas[2] = 'X';
@@ -233,8 +225,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p4[0] = true;
-                posicaoJogador4 = jogador;
-                if (posicaoJogador4) {
+                posicaoJogador[4] = jogador;
+                if (posicaoJogador[4]) {
                     p4[1], jogadas[3] = 'O';
                 } else {
                     p4[1], jogadas[3] = 'X';
@@ -249,8 +241,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p5[0] = true;
-                posicaoJogador5 = jogador;
-                if (posicaoJogador5) {
+                posicaoJogador[5] = jogador;
+                if (posicaoJogador[5]) {
                     p5[1], jogadas[4] = 'O';
                 } else {
                     p3[5], jogadas[4] = 'X';
@@ -265,8 +257,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p6[0] = true;
-                posicaoJogador6 = jogador;
-                if (posicaoJogador6) {
+                posicaoJogador[6] = jogador;
+                if (posicaoJogador[6]) {
                     p6[1], jogadas[5] = 'O';
                 } else {
                     p6[1], jogadas[5] = 'X';
@@ -281,8 +273,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p7[0] = true;
-                posicaoJogador7 = jogador;
-                if (posicaoJogador7) {
+                posicaoJogador[7] = jogador;
+                if (posicaoJogador[7]) {
                     p7[1], jogadas[6] = 'O';
                 } else {
                     p7[1], jogadas[6] = 'X';
@@ -297,8 +289,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p8[0] = true;
-                posicaoJogador8 = jogador;
-                if (posicaoJogador8) {
+                posicaoJogador[8] = jogador;
+                if (posicaoJogador[8]) {
                     p8[1], jogadas[7] = 'O';
                 } else {
                     p8[1], jogadas[7] = 'X';
@@ -313,8 +305,8 @@ function desenharAqui() {
                 console.log('Posição Ocupada');
             } else {
                 p9[0] = true;
-                posicaoJogador9 = jogador;
-                if (posicaoJogador9) {
+                posicaoJogador[9] = jogador;
+                if (posicaoJogador[9]) {
                     p9[1], jogadas[8] = 'O';
                 } else {
                     p9[1], jogadas[8] = 'X';
@@ -330,7 +322,7 @@ function desenharAqui() {
 
         if (p1[0] || p2[0] || p3[0] || p4[0] || p5[0] || p6[0] || p7[0] || p8[0] || p9[0]) {
             if (p1[0]) {
-                if (posicaoJogador1) {
+                if (posicaoJogador[1]) {
                     desenhaC(blockP1PW, blockP1PH);
                 } else {
                     desenhaX((blockP1W + (blockD * 0.25)), (blockP1H + (blockD * 0.25)), blockP2W - (blockD * 0.25), blockP5H - (blockD * 0.25), blockP4H - (blockD * 0.25));
@@ -338,7 +330,7 @@ function desenharAqui() {
                 }
             }
             if (p2[0]) {
-                if (posicaoJogador2) {
+                if (posicaoJogador[2]) {
                     desenhaC(blockP2PW, blockP2PH);
                 } else {
                     desenhaX((blockP2W + (blockD * 0.25)), (blockP2H + (blockD * 0.25)), blockP3W - (blockD * 0.25), blockP6H - (blockD * 0.25), blockP5H - (blockD * 0.25));
@@ -346,7 +338,7 @@ function desenharAqui() {
                 }
             }
             if (p3[0]) {
-                if (posicaoJogador3) {
+                if (posicaoJogador[3]) {
                     desenhaC(blockP3PW, blockP3PH);
                 } else {
                     desenhaX((blockP3W + (blockD * 0.25)), (blockP3H + (blockD * 0.25)), (blockP3W + blockD) - (blockD * 0.25), blockP6H - (blockD * 0.25), blockP5H - (blockD * 0.25));
@@ -354,7 +346,7 @@ function desenharAqui() {
                 }
             }
             if (p4[0]) {
-                if (posicaoJogador4) {
+                if (posicaoJogador[4]) {
                     desenhaC(blockP4PW, blockP4PH);
                 } else {
                     desenhaX((blockP4W + (blockD * 0.25)), (blockP4H + (blockD * 0.25)), blockP5W - (blockD * 0.25), blockP8H - (blockD * 0.25), blockP7H - (blockD * 0.25));
@@ -362,7 +354,7 @@ function desenharAqui() {
                 }
             }
             if (p5[0]) {
-                if (posicaoJogador5) {
+                if (posicaoJogador[5]) {
                     desenhaC(blockP5PW, blockP5PH);
                 } else {
                     desenhaX((blockP5W + (blockD * 0.25)), (blockP5H + (blockD * 0.25)), blockP6W - (blockD * 0.25), blockP9H - (blockD * 0.25), blockP8H - (blockD * 0.25));
@@ -370,7 +362,7 @@ function desenharAqui() {
                 }
             }
             if (p6[0]) {
-                if (posicaoJogador6) {
+                if (posicaoJogador[6]) {
                     desenhaC(blockP6PW, blockP6PH);
                 } else {
                     desenhaX((blockP6W + (blockD * 0.25)), (blockP6H + (blockD * 0.25)), (blockP6W + blockD) - (blockD * 0.25), blockP9H - (blockD * 0.25), blockP8H - (blockD * 0.25));
@@ -378,7 +370,7 @@ function desenharAqui() {
                 }
             }
             if (p7[0]) {
-                if (posicaoJogador7) {
+                if (posicaoJogador[7]) {
                     desenhaC(blockP7PW, blockP7PH);
                 } else {
                     desenhaX((blockP7W + (blockD * 0.25)), (blockP7H + (blockD * 0.25)), blockP8W - (blockD * 0.25), (blockP8H + blockH) - (blockD * 0.25), (blockP7H + blockH) - (blockD * 0.25));
@@ -386,7 +378,7 @@ function desenharAqui() {
                 }
             }
             if (p8[0]) {
-                if (posicaoJogador8) {
+                if (posicaoJogador[8]) {
                     desenhaC(blockP8PW, blockP8PH);
                 } else {
                     desenhaX((blockP8W + (blockD * 0.25)), (blockP8H + (blockD * 0.25)), blockP9W - (blockD * 0.25), (blockP9H + blockH) - (blockD * 0.25), (blockP8H + blockH) - (blockD * 0.25));
@@ -394,7 +386,7 @@ function desenharAqui() {
                 }
             }
             if (p9[0]) {
-                if (posicaoJogador9) {
+                if (posicaoJogador[9]) {
                     desenhaC(blockP9PW, blockP9PH);
                 } else {
                     desenhaX((blockP9W + (blockD * 0.25)), (blockP9H + (blockD * 0.25)), (blockP9W + blockD) - (blockD * 0.25), (blockP9H + blockH) - (blockD * 0.25), (blockP8H + blockH) - (blockD * 0.25));
@@ -408,7 +400,7 @@ function desenharAqui() {
 
 
     function ganhador() {
-        let mapV = ganha.map(condition => condition.map(position => jogadas[position]).join(''))
+        let mapV = ganha.map(condicao => condicao.map(posicao => jogadas[posicao]).join(''))
         console.log('aqui!' + mapV.includes('XXX'))
         console.log('ali!' + mapV.includes('OOO'));
         let xW = mapV.includes('XXX');
