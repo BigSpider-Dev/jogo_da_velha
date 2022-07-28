@@ -394,6 +394,7 @@ function desenharAqui() {
                 }
             }
             ganhador();
+            empate();
         }
     }
     testaPosicao();
@@ -418,9 +419,16 @@ function desenharAqui() {
             }
         }
     }
-    function mostraGanhador(valor) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.95)'
+    function empate(){
+        if(p1[0] && p2[0] && p3[0] && p4[0] && p5[0] && p6[0] && p7[0] && p8[0] && p9[0]) {
+            return mostraGanhador('TENTE OUTRA VEZ!')
+        }
+    }
+
+    function mostraGanhador(valor) {        
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.9)'
         ctx.fillRect((canvaCentroW - (blockW * 2)), blockP5H, blockW * 4, blockH);
 
         ctx.shadowOffsetX = 2;
