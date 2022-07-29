@@ -154,6 +154,8 @@ function desenharAqui() {
     ctx.textAlign = 'left';
     ctx.font = '20px Times New Roman';
     ctx.fillText('  By Ricardo Cunegatto', blockP8W, (blockP9H + blockH + (blockH * 0.2)));
+    ctx.fillText('V1.01', blockP7W, (blockP9H + blockH + (blockH * 0.2)));
+
 
 
     //recebe posição do mouse na hora do click
