@@ -151,7 +151,7 @@ function desenharAqui() {
     ctx.font = '20px Times New Roman';
     ctx.fillStyle = corPrimaria;
     ctx.textAlign = 'center';
-    ctx.fillText('###  Jogo da Velha  ###', canvaCentroW, 15);
+    ctx.fillText('###  Jogo da Velha  ###', canvaCentroW, blockP3H - (blockH * 0.2));
 
     ctx.textAlign = 'left';
     ctx.font = '20px Times New Roman';
@@ -420,10 +420,10 @@ function desenharAqui() {
         if (xW || oW) {
             if (xW) {
                 console.log(`O X venceu!`);
-                return mostraGanhador('Player X  Venceu!');
+                return mostraGanhador('Player "X" Venceu!');
             } else {
                 console.log(`O O venceu!`);
-                return mostraGanhador('Player O Venceu!')
+                return mostraGanhador('Player "O" Venceu!')
             }
         }
         empate();
