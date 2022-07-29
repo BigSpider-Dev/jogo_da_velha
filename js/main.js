@@ -400,7 +400,7 @@ function desenharAqui() {
                 }
             }
             ganhador();
-            empate();
+            
         }
     }
     testaPosicao();
@@ -408,13 +408,11 @@ function desenharAqui() {
 
     function ganhador() {
         let mapV = ganha.map(condicao => condicao.map(posicao => jogadas[posicao]).join(''))
-        //console.log('aqui!' + mapV.includes('XXX'))
-        //console.log('ali!' + mapV.includes('OOO'));
+        console.log('aqui!' + mapV.includes('XXX'))
+        console.log('ali!' + mapV.includes('OOO'));
         let xW = mapV.includes('XXX');
         let oW = mapV.includes('OOO');
-        //console.log(mapV);
-        //console.log('xW' + xW);
-        //console.log('oW' + xW);
+        
         if (xW || oW) {
             if (xW) {
                 console.log(`O X venceu!`);
@@ -424,6 +422,7 @@ function desenharAqui() {
                 return mostraGanhador('Player O Venceu!')
             }
         }
+        empate();
     }
     function iniciaJogo(xP,yP) {
         if(xP < (canvaCentroW - (blockW * 2))+(blockW * 4) && xP > canvaCentroW - (blockW * 2) && yP > blockP5H && yP < blockP5H + blockH) {
