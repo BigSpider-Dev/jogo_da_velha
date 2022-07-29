@@ -10,6 +10,7 @@ let p8 = [];
 let p9 = [];
 let jogador = false;
 let posicaoJogador = [];
+let inicioJogo = true;
 
 let ganha = [
     [0, 1, 2],
@@ -22,8 +23,6 @@ let ganha = [
     [2, 4, 6]
 ]
 
-//let arr = ['O','O','X','X','O','O','O','X','X'];
-
 const canvas = document.getElementById('tela');
 const ctx = canvas.getContext('2d');
 
@@ -32,10 +31,8 @@ window.addEventListener('resize', tamanhoCanvas, false);
 function tamanhoCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     //console.log(`width: ${canvas.width}`);
     //console.log(`heigth: ${canvas.height}`);
-
     desenharAqui();
 }
 
@@ -158,161 +155,165 @@ function desenharAqui() {
     function posicaoM(evento) {
         let x = evento.pageX - canvas.offsetLeft;
         let y = evento.pageY - canvas.offsetTop;
-        //console.log(x + ',' + y);
+        console.log(x + ',' + y);
         return verificaPosicao(x, y);
     }
     canvas.onclick = posicaoM;
 
     function verificaPosicao(xP, yP) {
-        if (xP > blockP1W && xP < blockP2W && yP > blockP1H && yP < blockP4H) {
-            console.log('posição 1 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p1[0]) {
-                console.log('Posição Ocupada');
-            } else {
+        if (!inicioJogo && posicaoJogador[0]) {
+            return iniciaJogo(xP,yP);
+        } else {
+            if (xP > blockP1W && xP < blockP2W && yP > blockP1H && yP < blockP4H) {
+                //console.log('posição 1 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p1[0]) {
+                    console.log('Posição Ocupada');
+                } else {
 
-                p1[0] = true;
-                posicaoJogador[1] = jogador;
+                    p1[0] = true;
+                    posicaoJogador[1] = jogador;
 
-                if (posicaoJogador[1]) {
-                    p1[1], jogadas[0] = 'O';
-                } else {
-                    p1[1], jogadas[0] = 'X';
-                }
-                jogador = !jogador;
+                    if (posicaoJogador[1]) {
+                        jogadas[0] = 'O';
+                    } else {
+                        jogadas[0] = 'X';
+                    }
+                    jogador = !jogador;
 
-                return testaPosicao(p1);
+                    return testaPosicao(p1);
+                }
             }
-        }
-        if (xP > blockP2W && xP < blockP3W && yP > blockP1H && yP < blockP4H) {
-            console.log('posição 2 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p2[0]) {
-                console.log('Posição Ocupada');
-            } else {
+            if (xP > blockP2W && xP < blockP3W && yP > blockP1H && yP < blockP4H) {
+                console.log('posição 2 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p2[0]) {
+                    console.log('Posição Ocupada');
+                } else {
 
-                p2[0] = true;
-                posicaoJogador[2] = jogador;
+                    p2[0] = true;
+                    posicaoJogador[2] = jogador;
 
-                if (posicaoJogador[2]) {
-                    p2[1], jogadas[1] = 'O';
-                } else {
-                    p2[1], jogadas[1] = 'X';
+                    if (posicaoJogador[2]) {
+                        jogadas[1] = 'O';
+                    } else {
+                        jogadas[1] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p2);
                 }
-                jogador = !jogador;
-                return testaPosicao(p2);
             }
-        }
-        if (xP > blockP3W && xP < (blockP3W + blockW) && yP > blockP1H && yP < blockP4H) {
-            console.log('posição 3 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p3[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                //p3.ocup = true;
-                p3[0] = true;
-                posicaoJogador[3] = jogador;
-                //p3.jogador = posicaoJogador3;
-                if (posicaoJogador[3]) {
-                    p3[1], jogadas[2] = 'O';
+            if (xP > blockP3W && xP < (blockP3W + blockW) && yP > blockP1H && yP < blockP4H) {
+                console.log('posição 3 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p3[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p3[1], jogadas[2] = 'X';
+                    //p3.ocup = true;
+                    p3[0] = true;
+                    posicaoJogador[3] = jogador;
+                    //p3.jogador = posicaoJogador3;
+                    if (posicaoJogador[3]) {
+                        jogadas[2] = 'O';
+                    } else {
+                        jogadas[2] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p3);
                 }
-                jogador = !jogador;
-                return testaPosicao(p3);
             }
-        }
-        if (xP > blockP4W && xP < (blockP4W + blockW) && yP > blockP4H && yP < blockP7H) {
-            console.log('posição 4 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p4[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p4[0] = true;
-                posicaoJogador[4] = jogador;
-                if (posicaoJogador[4]) {
-                    p4[1], jogadas[3] = 'O';
+            if (xP > blockP4W && xP < (blockP4W + blockW) && yP > blockP4H && yP < blockP7H) {
+                console.log('posição 4 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p4[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p4[1], jogadas[3] = 'X';
+                    p4[0] = true;
+                    posicaoJogador[4] = jogador;
+                    if (posicaoJogador[4]) {
+                        jogadas[3] = 'O';
+                    } else {
+                        jogadas[3] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p4);
                 }
-                jogador = !jogador;
-                return testaPosicao(p4);
             }
-        }
-        if (xP > blockP5W && xP < (blockP5W + blockW) && yP > blockP5H && yP < blockP7H) {
-            console.log('posição 5 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p5[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p5[0] = true;
-                posicaoJogador[5] = jogador;
-                if (posicaoJogador[5]) {
-                    p5[1], jogadas[4] = 'O';
+            if (xP > blockP5W && xP < (blockP5W + blockW) && yP > blockP5H && yP < blockP7H) {
+                console.log('posição 5 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p5[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p3[5], jogadas[4] = 'X';
+                    p5[0] = true;
+                    posicaoJogador[5] = jogador;
+                    if (posicaoJogador[5]) {
+                        jogadas[4] = 'O';
+                    } else {
+                        jogadas[4] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p5);
                 }
-                jogador = !jogador;
-                return testaPosicao(p5);
             }
-        }
-        if (xP > blockP6W && xP < (blockP6W + blockW) && yP > blockP6H && yP < blockP7H) {
-            console.log('posição 6 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p6[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p6[0] = true;
-                posicaoJogador[6] = jogador;
-                if (posicaoJogador[6]) {
-                    p6[1], jogadas[5] = 'O';
+            if (xP > blockP6W && xP < (blockP6W + blockW) && yP > blockP6H && yP < blockP7H) {
+                console.log('posição 6 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p6[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p6[1], jogadas[5] = 'X';
+                    p6[0] = true;
+                    posicaoJogador[6] = jogador;
+                    if (posicaoJogador[6]) {
+                        jogadas[5] = 'O';
+                    } else {
+                        jogadas[5] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p6);
                 }
-                jogador = !jogador;
-                return testaPosicao(p6);
             }
-        }
-        if (xP > blockP7W && xP < (blockP7W + blockW) && yP > blockP7H && yP < (blockP7H + blockH)) {
-            console.log('posição 7 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p7[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p7[0] = true;
-                posicaoJogador[7] = jogador;
-                if (posicaoJogador[7]) {
-                    p7[1], jogadas[6] = 'O';
+            if (xP > blockP7W && xP < (blockP7W + blockW) && yP > blockP7H && yP < (blockP7H + blockH)) {
+                console.log('posição 7 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p7[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p7[1], jogadas[6] = 'X';
+                    p7[0] = true;
+                    posicaoJogador[7] = jogador;
+                    if (posicaoJogador[7]) {
+                        jogadas[6] = 'O';
+                    } else {
+                        jogadas[6] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p7);
                 }
-                jogador = !jogador;
-                return testaPosicao(p7);
             }
-        }
-        if (xP > blockP8W && xP < (blockP8W + blockW) && yP > blockP8H && yP < (blockP8H + blockH)) {
-            console.log('posição 8 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p8[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p8[0] = true;
-                posicaoJogador[8] = jogador;
-                if (posicaoJogador[8]) {
-                    p8[1], jogadas[7] = 'O';
+            if (xP > blockP8W && xP < (blockP8W + blockW) && yP > blockP8H && yP < (blockP8H + blockH)) {
+                console.log('posição 8 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p8[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p8[1], jogadas[7] = 'X';
+                    p8[0] = true;
+                    posicaoJogador[8] = jogador;
+                    if (posicaoJogador[8]) {
+                        jogadas[7] = 'O';
+                    } else {
+                        jogadas[7] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p8);
                 }
-                jogador = !jogador;
-                return testaPosicao(p8);
             }
-        }
-        if (xP > blockP9W && xP < (blockP9W + blockW) && yP > blockP9H && yP < (blockP9H + blockH)) {
-            console.log('posição 9 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
-            if (p9[0]) {
-                console.log('Posição Ocupada');
-            } else {
-                p9[0] = true;
-                posicaoJogador[9] = jogador;
-                if (posicaoJogador[9]) {
-                    p9[1], jogadas[8] = 'O';
+            if (xP > blockP9W && xP < (blockP9W + blockW) && yP > blockP9H && yP < (blockP9H + blockH)) {
+                console.log('posição 9 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
+                if (p9[0]) {
+                    console.log('Posição Ocupada');
                 } else {
-                    p9[1], jogadas[8] = 'X';
+                    p9[0] = true;
+                    posicaoJogador[9] = jogador;
+                    if (posicaoJogador[9]) {
+                        jogadas[8] = 'O';
+                    } else {
+                        jogadas[8] = 'X';
+                    }
+                    jogador = !jogador;
+                    return testaPosicao(p9);
                 }
-                jogador = !jogador;
-                return testaPosicao(p9);
             }
         }
     }
@@ -326,7 +327,7 @@ function desenharAqui() {
                     desenhaC(blockP1PW, blockP1PH);
                 } else {
                     desenhaX((blockP1W + (blockD * 0.25)), (blockP1H + (blockD * 0.25)), blockP2W - (blockD * 0.25), blockP5H - (blockD * 0.25), blockP4H - (blockD * 0.25));
-                    console.log('j1 ' + jogador + ' X');
+                    //console.log('j1 ' + jogador + ' X');
                 }
             }
             if (p2[0]) {
@@ -334,7 +335,7 @@ function desenharAqui() {
                     desenhaC(blockP2PW, blockP2PH);
                 } else {
                     desenhaX((blockP2W + (blockD * 0.25)), (blockP2H + (blockD * 0.25)), blockP3W - (blockD * 0.25), blockP6H - (blockD * 0.25), blockP5H - (blockD * 0.25));
-                    console.log('j2 ' + jogador);
+                    //console.log('j2 ' + jogador);
                 }
             }
             if (p3[0]) {
@@ -342,7 +343,7 @@ function desenharAqui() {
                     desenhaC(blockP3PW, blockP3PH);
                 } else {
                     desenhaX((blockP3W + (blockD * 0.25)), (blockP3H + (blockD * 0.25)), (blockP3W + blockD) - (blockD * 0.25), blockP6H - (blockD * 0.25), blockP5H - (blockD * 0.25));
-                    console.log('j3 ' + jogador);
+                    //console.log('j3 ' + jogador);
                 }
             }
             if (p4[0]) {
@@ -402,30 +403,56 @@ function desenharAqui() {
 
     function ganhador() {
         let mapV = ganha.map(condicao => condicao.map(posicao => jogadas[posicao]).join(''))
-        console.log('aqui!' + mapV.includes('XXX'))
-        console.log('ali!' + mapV.includes('OOO'));
+        //console.log('aqui!' + mapV.includes('XXX'))
+        //console.log('ali!' + mapV.includes('OOO'));
         let xW = mapV.includes('XXX');
         let oW = mapV.includes('OOO');
-        console.log(mapV);
-        console.log('xW' + xW);
-        console.log('oW' + xW);
+        //console.log(mapV);
+        //console.log('xW' + xW);
+        //console.log('oW' + xW);
         if (xW || oW) {
             if (xW) {
                 console.log(`O X venceu!`);
-                return mostraGanhador('O Player X  Venceu!');
+                return mostraGanhador('Player X  Venceu!');
             } else {
                 console.log(`O O venceu!`);
-                return mostraGanhador('O Player O  Venceu!')
+                return mostraGanhador('Player O Venceu!')
             }
         }
     }
-    function empate(){
-        if(p1[0] && p2[0] && p3[0] && p4[0] && p5[0] && p6[0] && p7[0] && p8[0] && p9[0]) {
-            return mostraGanhador('TENTE OUTRA VEZ!')
+    function iniciaJogo(xP,yP) {
+        if(xP < (canvaCentroW - (blockW * 2))+(blockW * 4) && xP > canvaCentroW - (blockW * 2) && yP > blockP5H && yP < blockP5H + blockH) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            p1[0] = false;
+            p2[0] = false;
+            p3[0] = false;
+            p4[0] = false;
+            p5[0] = false;
+            p6[0] = false;
+            p7[0] = false;
+            p8[0] = false;
+            p9[0] = false;
+            jogador = false;
+            inicioJogo = true;
+            for(i=0; i < 9; i++) {
+                jogadas[i]= '';
+            }
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            desenharAqui();
+            console.log('no alvo');
+        } else {
+            console.log('ops');            
+        }        
+    }
+    function empate() {
+        if (p1[0] && p2[0] && p3[0] && p4[0] && p5[0] && p6[0] && p7[0] && p8[0] && p9[0]) {
+            return mostraGanhador('DEU VELHA!')
         }
     }
-
-    function mostraGanhador(valor) {        
+    function mostraGanhador(valor) {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgba(0, 212, 255, 0.9)'
@@ -438,10 +465,12 @@ function desenharAqui() {
         ctx.font = '40px Times New Roman';
         ctx.fillStyle = corPrimaria;
         ctx.textAlign = 'center';
-        ctx.fillText(valor, canvaCentroW, canvaCentroH);
-
+        ctx.fillText(valor, canvaCentroW, canvaCentroH - 10);
+        ctx.fillText('Iniciar', canvaCentroW, canvaCentroH + 40);
+        posicaoJogador[0] = true;
+        inicioJogo = false;        
+        verificaPosicao()
     }
-
     function desenhaC(objW, objH, objW2, objH2, objH3) {
         //ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 5;

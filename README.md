@@ -13,9 +13,9 @@ A idéia é criar o jogo "jogo da velha" com javascript através do canvas (dese
 - |ok| => LOGICA PARA DENHAR X ou O NO TABULEIRO
 - |ok| => VERIFICAR SE POSIÇÃO SENDO USADA 
 - |ok| => ALTERNAR JOGADOR
-- |  | => VERIFICAR GANHADOR OU EMPATE
-- |  | => MOSTRAR RESULTADO
-- |  | => INICIAR NOVO JOGO
+- |ok| => VERIFICAR GANHADOR OU EMPATE
+- |ok| => MOSTRAR RESULTADO
+- |ok| => INICIAR NOVO JOGO
 - |  | => OTIMIZAR CODIGO 
 
 
