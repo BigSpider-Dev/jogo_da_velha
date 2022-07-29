@@ -44,9 +44,10 @@ function desenharAqui() {
     let blockW = blockD;
     let blockH = blockD;
 
-    let corPrimaria = 'rgba(0,0,255,0.8';
-    let corSecundaria = 'rgb(37, 0, 37)';
-    let corObjeto = 'rgb(0,0,0)';
+    let corPrimaria = 'rgba(0,59,74,0.9';
+    let corSecundaria = 'rgb(13, 161, 146)';
+    let corObjetoX = 'rgb(84,84,84)';
+    let corObjetoO = 'rgb(242, 235, 211)';
 
     let canvaZeroW = canvas.width - canvas.width;
     let canvaZeroH = canvas.height - canvas.height;
@@ -95,6 +96,7 @@ function desenharAqui() {
     let blockP9PW = ((blockP9W + (blockW / 2)));
     let blockP9PH = ((blockP9H + (blockH / 2)));
 
+    ctx.lineWidth = 5;
     ctx.strokeStyle = corSecundaria;
     ctx.strokeRect(blockP1W, blockP1H, blockW, blockH);
     ctx.strokeStyle = corSecundaria;
@@ -114,27 +116,27 @@ function desenharAqui() {
     ctx.strokeStyle = corSecundaria;
     ctx.strokeRect(blockP9W, blockP9H, blockW, blockH);
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 6;
 
-    ctx.strokeStyle = 'aqua';
+    ctx.strokeStyle = '#14bdac';
     ctx.beginPath();
     ctx.moveTo(blockP1W, blockP1H);
     ctx.lineTo((blockP1W + somaBlockW), blockP1H);
     ctx.stroke();
 
-    ctx.strokeStyle = 'aqua';
+    ctx.strokeStyle = '#14bdac';
     ctx.beginPath();
     ctx.moveTo(blockP1W, (blockP7H + blockH));
     ctx.lineTo((blockP1W + somaBlockW), (blockP7H + blockH));
     ctx.stroke();
 
-    ctx.strokeStyle = 'aqua';
+    ctx.strokeStyle = '#14bdac';
     ctx.beginPath();
     ctx.moveTo(blockP1W, (blockP1H));
     ctx.lineTo(blockP1W, (blockP7H + blockH));
     ctx.stroke();
 
-    ctx.strokeStyle = 'aqua';
+    ctx.strokeStyle = '#14bdac';
     ctx.beginPath();
     ctx.moveTo((blockP1W + somaBlockW), (blockP1H));
     ctx.lineTo((blockP1W + somaBlockW), (blockP7H + blockH));
@@ -461,7 +463,7 @@ function desenharAqui() {
     function mostraGanhador(valor) {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.9)'
+        ctx.fillStyle = 'rgba(20, 189, 172, 0.9)'
         ctx.fillRect((canvaCentroW - (blockW * 2)), blockP5H, blockW * 4, blockH);
 
         ctx.shadowOffsetX = 2;
@@ -479,10 +481,10 @@ function desenharAqui() {
     }
     function desenhaC(objW, objH, objW2, objH2, objH3) {
         //ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = corObjeto;
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = corObjetoO;
         ctx.beginPath();
-        ctx.arc(objW, objH, (blockW * 0.35), 0, Math.PI * 2, true);
+        ctx.arc(objW, objH, (blockW * 0.30), 0, Math.PI * 2, true);
         ctx.stroke();
         ctx.lineWidth = 1;
     }
@@ -492,8 +494,8 @@ function desenharAqui() {
         ctx.shadowOffsetY = 0;
         ctx.shadowBlur = 0;
         ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = corObjeto;
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = corObjetoX;
         ctx.beginPath();
         ctx.moveTo(objW, objH);
         ctx.lineTo(objW2, objH2);
