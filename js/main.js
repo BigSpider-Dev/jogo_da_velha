@@ -171,7 +171,7 @@ function desenharAqui() {
 
     function verificaPosicao(xP, yP) {
         if (!inicioJogo && posicaoJogador[0]) {
-            return iniciaJogo(xP,yP);
+            return iniciaJogo(xP, yP);
         } else {
             if (xP > blockP1W && xP < blockP2W && yP > blockP1H && yP < blockP4H) {
                 //console.log('posição 1 ' + xP, yP + '  ' + blockP1PW, blockP1PH);
@@ -404,7 +404,7 @@ function desenharAqui() {
                 }
             }
             ganhador();
-            
+
         }
     }
     testaPosicao();
@@ -416,7 +416,7 @@ function desenharAqui() {
         console.log('ali!' + mapV.includes('OOO'));
         let xW = mapV.includes('XXX');
         let oW = mapV.includes('OOO');
-        
+
         if (xW || oW) {
             if (xW) {
                 console.log(`O X venceu!`);
@@ -428,8 +428,8 @@ function desenharAqui() {
         }
         empate();
     }
-    function iniciaJogo(xP,yP) {
-        if(xP < (canvaCentroW - (blockW * 2))+(blockW * 4) && xP > canvaCentroW - (blockW * 2) && yP > blockP5H && yP < blockP5H + blockH) {
+    function iniciaJogo(xP, yP) {
+        if (xP < (canvaCentroW - (blockW * 2)) + (blockW * 4) && xP > canvaCentroW - (blockW * 2) && yP > blockP5H && yP < blockP5H + blockH) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             p1[0] = false;
             p2[0] = false;
@@ -442,8 +442,8 @@ function desenharAqui() {
             p9[0] = false;
             jogador = false;
             inicioJogo = true;
-            for(i=0; i < 9; i++) {
-                jogadas[i]= '';
+            for (i = 0; i < 9; i++) {
+                jogadas[i] = '';
             }
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 0;
@@ -452,8 +452,8 @@ function desenharAqui() {
             desenharAqui();
             console.log('no alvo');
         } else {
-            console.log('ops');            
-        }        
+            console.log('ops');
+        }
     }
     function empate() {
         if (p1[0] && p2[0] && p3[0] && p4[0] && p5[0] && p6[0] && p7[0] && p8[0] && p9[0]) {
@@ -464,8 +464,21 @@ function desenharAqui() {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgba(20, 189, 172, 0.9)'
-        ctx.fillRect((canvaCentroW - (blockW * 2)), blockP5H, blockW * 4, blockH);
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(20, 189, 172, 0.9)'
+        ctx.strokeStyle = 'rgba(10, 179, 162, 0.7)';
+        ctx.lineWidth = 5;
+        ctx.moveTo(canvaCentroW, blockP2H + (blockD * 0.8));
+        ctx.arcTo(blockP3W + (blockD * 1.5), blockP2H + (blockD * 0.8), blockP3W + (blockD * 1.5), blockP9H + (blockD * 0.8), 23);
+        ctx.arcTo(blockP3W + (blockD * 1.5), blockP9H + (blockD * 0.2), canvaCentroW, blockP9H + (blockD * 0.2), 23);
+        ctx.arcTo(blockP2W - (blockD * 1.5), blockP7H + (blockD * 0.2), blockP2W - (blockD * 1.5), blockP7H - (blockD * 0.2), 23);
+        ctx.arcTo(blockP2W - (blockD * 1.5), blockP4H - (blockD * 0.2), blockP2W + (blockD * 1.5), blockP4H - (blockD * 0.2), 23);
+        ctx.lineTo(canvaCentroW, blockP4H - (blockD * 0.2));
+        ctx.stroke();
+        ctx.fill();
+        ctx.lineWidth = 1;
 
+        ctx.beginPath();
         ctx.shadowOffsetX = 2;
         ctx.shadowOffsetY = 2;
         ctx.shadowBlur = 2;
@@ -476,7 +489,7 @@ function desenharAqui() {
         ctx.fillText(valor, canvaCentroW, canvaCentroH - 10);
         ctx.fillText('Iniciar', canvaCentroW, canvaCentroH + 40);
         posicaoJogador[0] = true;
-        inicioJogo = false;        
+        inicioJogo = false;
         verificaPosicao()
     }
     function desenhaC(objW, objH, objW2, objH2, objH3) {
