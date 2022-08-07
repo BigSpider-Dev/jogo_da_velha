@@ -483,7 +483,7 @@ function desenharAqui() {
         ctx.shadowOffsetY = 2;
         ctx.shadowBlur = 2;
         ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-        ctx.font = '40px Times New Roman';
+        ctx.font = '36px Times New Roman';
         ctx.fillStyle = corPrimaria;
         ctx.textAlign = 'center';
         ctx.fillText(valor, canvaCentroW, canvaCentroH - 10);
