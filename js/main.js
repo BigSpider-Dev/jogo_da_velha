@@ -156,7 +156,7 @@ function desenharAqui() {
     ctx.textAlign = 'left';
     ctx.font = '17px Times New Roman';
     ctx.fillText(' Ricardo Cunegatto © 2022', blockP8W, (blockP9H + blockH + (blockH * 0.2)));
-    ctx.fillText('  V1.01', blockP7W, (blockP9H + blockH + (blockH * 0.2)));
+    ctx.fillText('  V1.02', blockP7W, (blockP9H + blockH + (blockH * 0.2)));
 
 
 
