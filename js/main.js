@@ -469,10 +469,10 @@ function desenharAqui() {
         ctx.strokeStyle = 'rgba(10, 179, 162, 0.7)';
         ctx.lineWidth = 5;
         ctx.moveTo(canvaCentroW, blockP2H + (blockD * 0.8));
-        ctx.arcTo(blockP3W + (blockD * 1.5), blockP2H + (blockD * 0.8), blockP3W + (blockD * 1.5), blockP9H + (blockD * 0.8), 23);
-        ctx.arcTo(blockP3W + (blockD * 1.5), blockP9H + (blockD * 0.2), canvaCentroW, blockP9H + (blockD * 0.2), 23);
-        ctx.arcTo(blockP2W - (blockD * 1.5), blockP7H + (blockD * 0.2), blockP2W - (blockD * 1.5), blockP7H - (blockD * 0.2), 23);
-        ctx.arcTo(blockP2W - (blockD * 1.5), blockP4H - (blockD * 0.2), blockP2W + (blockD * 1.5), blockP4H - (blockD * 0.2), 23);
+        ctx.arcTo(blockP3W + (blockD * 1.2), blockP2H + (blockD * 0.8), blockP3W + (blockD * 1.2), blockP9H + (blockD * 0.8), 23);
+        ctx.arcTo(blockP3W + (blockD * 1.2), blockP9H + (blockD * 0.2), canvaCentroW, blockP9H + (blockD * 0.2), 23);
+        ctx.arcTo(blockP2W - (blockD * 1.2), blockP7H + (blockD * 0.2), blockP2W - (blockD * 1.2), blockP7H - (blockD * 0.2), 23);
+        ctx.arcTo(blockP2W - (blockD * 1.2), blockP4H - (blockD * 0.2), blockP2W + (blockD * 1.2), blockP4H - (blockD * 0.2), 23);
         ctx.lineTo(canvaCentroW, blockP4H - (blockD * 0.2));
         ctx.stroke();
         ctx.fill();
