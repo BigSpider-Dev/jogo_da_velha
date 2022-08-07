@@ -148,15 +148,15 @@ function desenharAqui() {
     ctx.shadowOffsetY = 2;
     ctx.shadowBlur = 2;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    ctx.font = '20px Times New Roman';
+    ctx.font = '20px Courier New';
     ctx.fillStyle = corPrimaria;
     ctx.textAlign = 'center';
-    ctx.fillText('###  Jogo da Velha  ###', canvaCentroW, blockP3H - (blockH * 0.2));
+    ctx.fillText('###  JOGO DA VELHA  ###', canvaCentroW, blockP3H - (blockH * 0.2));
 
     ctx.textAlign = 'left';
-    ctx.font = '20px Times New Roman';
-    ctx.fillText('  By Ricardo Cunegatto', blockP8W, (blockP9H + blockH + (blockH * 0.2)));
-    ctx.fillText('V1.01', blockP7W, (blockP9H + blockH + (blockH * 0.2)));
+    ctx.font = '17px Times New Roman';
+    ctx.fillText(' Ricardo Cunegatto © 2022', blockP8W, (blockP9H + blockH + (blockH * 0.2)));
+    ctx.fillText('  V1.01', blockP7W, (blockP9H + blockH + (blockH * 0.2)));
 
 
 
